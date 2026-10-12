@@ -1,3 +1,5 @@
+# Lab 6 - Rabia Ashraf
+
 # Task 3: Model-based reflex agent managing heaters in two rooms
 model = {"Room1": None, "Room2": None}        # last known reading of each room
 heater_on_count = {"Room1": 0, "Room2": 0}    # times the heater was turned ON
