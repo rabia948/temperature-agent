@@ -1,5 +1,6 @@
 # Task 3: Model-based reflex agent managing heaters in two rooms
 model = {"Room1": None, "Room2": None}        # last known reading of each room
+heater_on_count = {"Room1": 0, "Room2": 0}    # times the heater was turned ON
 
 
 def temperature_agent(room, reading):
@@ -7,6 +8,7 @@ def temperature_agent(room, reading):
     model[room] = reading
 
     if reading == "Cold":
+        heater_on_count[room] += 1
         return "Turn Heater ON"
     elif reading == "Hot":
         return "Turn Heater OFF"
@@ -23,3 +25,4 @@ print("Room\tReading\tAction\t\t\t\tModel")
 for room, reading in percept_sequence:
     action = temperature_agent(room, reading)
     print(f"{room}\t{reading}\t{action:<30}\t{model}")
+print("Heater ON count:", heater_on_count)
